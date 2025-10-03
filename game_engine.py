@@ -16,15 +16,65 @@ import equation_generator
 ###########################################
 
 def is_valid_guess(guess):
+    if not isinstance(guess, str):
+        return False
+        
+    if len(guess) != 8:
+        return False
+    
+
+    if '=' not in guess:
+        return False
+    elif len(guess) > 1:
+        return False
+    
+    try:
+        left_side, right_side = guess.split('=')
+
+        expected_result = int(right_side)
+        
+        if '+' in left_side:
+            parts = left_side.split('+')
+            if len(parts) == 2:
+                actual_result = int(parts[0]) + int(parts[1])
+            else:
+                return False
+        elif '-' in left_side:
+            parts = left_side.split('-')
+            if len(parts) == 2:
+                actual_result = int(parts[0]) - int(parts[1])
+            else:
+                return False
+        elif '*' in left_side:
+            parts = left_side.split('*')
+            if len(parts) == 2:
+                actual_result = int(parts[0]) * int(parts[1])
+            else:
+                return False
+        elif '/' in left_side:
+            parts = left_side.split('/')
+            if len(parts) == 2:
+                if int(parts[1]) == 0:
+                    return False
+                if int(parts[0]) % int(parts[1]) != 0:
+                    return False
+                actual_result = int(parts[0]) // int(parts[1])
+            else:
+                return False
+        else:
+            return False
+        
+        return actual_result == expected_result
+        
+    except ValueError:
+        return False
+    except ZeroDivisionError:
+        return False
     """
     Check if a player's guess is valid for Nerdle.
     
     A valid guess must:
-    - Be exactly 8 characters long
-    - Only contain valid characters (digits, +, -, *, /, =)
-      - Hint: Use the get_valid_characters() function
     - Be a mathematically correct equation
-      - Hint: Use the validate_equation() function from the equation_generator module
     - Have exactly one equals sign
 
     Args:
