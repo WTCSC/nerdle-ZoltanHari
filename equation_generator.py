@@ -9,26 +9,26 @@ For example: 12+34=46 or 8*7=56
 import random
 
 def generate_numbers_for_addition():
-    num1 = random.randint(1, 99)
-    num2 = random.randint(1, 99)
+    num1 = random.randint(10, 99)
+    num2 = random.randint(10, 99)
     result = num1 + num2
     return(num1, num2, result)
 
 def generate_numbers_for_subtraction():
-    num1 = random.randint(1, 99)
-    num2 = random.randint(1, 99)
+    num1 = random.randint(10, 99)
+    num2 = random.randint(10, 99)
     result = num1 - num2
     return(num1, num2, result)
 
 def generate_numbers_for_multiplication():
-    num1 = random.randint(1, 99)
-    num2 = random.randint(1, 99)
+    num1 = random.randint(10, 99)
+    num2 = random.randint(10, 99)
     result = num1 * num2
     return(num1, num2, result)
 
 def generate_numbers_for_division():
-    num1 = random.randint(1, 99)
-    num2 = random.randint(1, 99)
+    num1 = random.randint(10, 99)
+    num2 = random.randint(10, 99)
     result = num1 / num2
     return(num1, num2, result)
     
