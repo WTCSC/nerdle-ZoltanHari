@@ -9,30 +9,21 @@ import equation_generator
 
 
 def is_valid_guess(guess):
-    guess = guess.strip()
-
     if not isinstance(guess, str):
-        print("Error: Guess must be a string.")
         return False
 
     if len(guess) != 8:
-        print(f"Error: Guess must be exactly 8 characters. You entered {len(guess)} characters.")
+        return False
+
+    valid_chars = get_valid_characters()
+    if not all(ch in valid_chars for ch in guess):
         return False
 
     if guess.count('=') != 1:
-        print("Error: Equation must have exactly one equals sign (=).")
         return False
 
-    valid_chars = game_engine.validate_equation()
-    if not all(ch in valid_chars for ch in guess):
-        print("Error: Invalid characters found in your guess.")
-        return False
+    return validate_equation(guess)
 
-    if not equation_generator.validate_equation(guess):
-        print("Error: Equation is not mathematically correct.")
-        return False
-
-    return True
 
 ################################################################################
 #  DO NOT EDIT BELOW THIS LINE, THESE FUNCTIONS ARE ALREADY COMPLETED FOR YOU  #
