@@ -9,64 +9,30 @@ import equation_generator
 
 
 def is_valid_guess(guess):
+    guess = guess.strip()
+
     if not isinstance(guess, str):
+        print("Error: Guess must be a string.")
         return False
-        
+
     if len(guess) != 8:
+        print(f"Error: Guess must be exactly 8 characters. You entered {len(guess)} characters.")
         return False
-    
+
     if guess.count('=') != 1:
+        print("Error: Equation must have exactly one equals sign (=).")
         return False
 
-    valid_chars = set("0123456789+-*/=")
+    valid_chars = game_engine.validate_equation()
     if not all(ch in valid_chars for ch in guess):
+        print("Error: Invalid characters found in your guess.")
         return False
 
-    try:
-        left_side, right_side = guess.split('=')
-        operators = '+-*/'
-        if sum(left_side.count(op) for op in operators) != 1:  
-            return False
+    if not equation_generator.validate_equation(guess):
+        print("Error: Equation is not mathematically correct.")
+        return False
 
-        expected_result = int(right_side)
-        
-        if '+' in left_side:
-            parts = left_side.split('+')
-            if len(parts) == 2:
-                actual_result = int(parts[0]) + int(parts[1])
-            else:
-                return False
-        elif '-' in left_side:
-            parts = left_side.split('-')
-            if len(parts) == 2:
-                actual_result = int(parts[0]) - int(parts[1])
-            else:
-                return False
-        elif '*' in left_side:
-            parts = left_side.split('*')
-            if len(parts) == 2:
-                actual_result = int(parts[0]) * int(parts[1])
-            else:
-                return False
-        elif '/' in left_side:
-            parts = left_side.split('/')
-            if len(parts) == 2:
-                if int(parts[1]) == 0:
-                    return False
-                if int(parts[0]) % int(parts[1]) != 0:
-                    return False
-                actual_result = int(parts[0]) // int(parts[1])
-            else:
-                return False
-        else:
-            return False
-        
-        return actual_result == expected_result
-        
-    except ValueError:
-        return False
-    except ZeroDivisionError:
-        return False
+    return True
 
 ################################################################################
 #  DO NOT EDIT BELOW THIS LINE, THESE FUNCTIONS ARE ALREADY COMPLETED FOR YOU  #
