@@ -22,7 +22,7 @@ def is_valid_guess(guess):
     if guess.count('=') != 1:
         return False
 
-    return validate_equation(guess)
+    return equation_generator.validate_equation(guess)
 
 
 ################################################################################
