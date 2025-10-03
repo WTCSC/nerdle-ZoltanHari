@@ -5,15 +5,8 @@ This module handles the core game logic for Nerdle.
 It manages the game state, validates user input, and provides feedback.
 """
 
-########################################
-# TODO: Import the appropriate modules #
-########################################
-
 import equation_generator
 
-###########################################
-# TODO: Implement the following functions #
-###########################################
 
 def is_valid_guess(guess):
     if not isinstance(guess, str):
@@ -22,14 +15,18 @@ def is_valid_guess(guess):
     if len(guess) != 8:
         return False
     
+    if guess.count('=') != 1:
+        return False
 
-    if '=' not in guess:
+    valid_chars = set("0123456789+-*/=")
+    if not all(ch in valid_chars for ch in guess):
         return False
-    elif len(guess) > 1:
-        return False
-    
+
     try:
         left_side, right_side = guess.split('=')
+        operators = '+-*/'
+        if sum(left_side.count(op) for op in operators) != 1:  
+            return False
 
         expected_result = int(right_side)
         
@@ -70,19 +67,6 @@ def is_valid_guess(guess):
         return False
     except ZeroDivisionError:
         return False
-    """
-    Check if a player's guess is valid for Nerdle.
-    
-    A valid guess must:
-    - Be a mathematically correct equation
-    - Have exactly one equals sign
-
-    Args:
-        guess (str): The player's guess
-        
-    Returns:
-        bool: True if the guess is valid, False otherwise
-    """
 
 ################################################################################
 #  DO NOT EDIT BELOW THIS LINE, THESE FUNCTIONS ARE ALREADY COMPLETED FOR YOU  #
