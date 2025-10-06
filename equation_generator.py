@@ -13,8 +13,7 @@ def generate_numbers_for_addition():
         num1 = random.randint(10, 99)
         num2 = random.randint(10, 99)
         result = num1 + num2
-        if 10 <= result <= 99:
-            return (num1, num2, result)
+        return (num1, num2, result)
 
 def generate_numbers_for_subtraction():
 
@@ -22,24 +21,21 @@ def generate_numbers_for_subtraction():
         num1 = random.randint(10, 99)
         num2 = random.randint(10, num1)
         result = num1 - num2
-        if 10 <= result <= 99:
-            return (num1, num2, result)
+        return (num1, num2, result)
 
 def generate_numbers_for_multiplication():
     while True:
         num1 = random.randint(2, 9)
         num2 = random.randint(10, 99)
         result = num1 * num2
-        if 100 <= result <= 999:
-            return (num1, num2, result)
+        return (num1, num2, result)
 
 def generate_numbers_for_division():
     while True:
         result = random.randint(2, 9)
         num2 = random.randint(10, 99)
         num1 = result * num2
-        if 100 <= num1 <= 999 and 10 <= num2 <= 99:
-            return (num1, num2, result)
+        return (num1, num2, result)
     
 ################################################################################
 #  DO NOT EDIT BELOW THIS LINE, THESE FUNCTIONS ARE ALREADY COMPLETED FOR YOU  #
