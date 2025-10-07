@@ -50,3 +50,5 @@ Just like Wordle, you'll know what you got right after each guess:
 - **White**: Number not in the equation
 
 ## Decision Tree
+
+https://docs.google.com/document/d/13il2hTgKNb3d70uDI-BPxPfxRTDqsTqAgpWjWiiWHxM/edit?tab=t.0
