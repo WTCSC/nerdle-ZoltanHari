@@ -41,7 +41,7 @@ cd nerdle-ZoltanHari
 
 ### Example Equations
 
-![](nerdle1.png)
+![Image showing an example game of Nerdle](images/nerdle1.png)
 
 ## Feedback System
 Just like Wordle, you'll know what you got right after each guess:
