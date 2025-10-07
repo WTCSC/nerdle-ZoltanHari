@@ -15,12 +15,11 @@
 Nerdle is a fun mathematical twist on Wordle! Instead of guessing words, you need to figure out an 8-character equation like `12+34=46` or `3*34=102`. Put your math skills to the test in this engaging puzzle game.
 
 
-### Requirements
+## Requirements
 - Python 3.8 or higher
 
-### Quick Start
 
-1. **Installation:**
+## Installation
 ```bash
 git clone https://github.com/WTCSC/nerdle-ZoltanHari.git
 
@@ -33,7 +32,7 @@ cd nerdle-ZoltanHari
  
 2. Guess the hidden 8-character mathematical equation
 
-### Game Rules
+## Game Rules
 - You have **6 attempts** to guess the correct equation
 - Each equation is exactly **8 characters** long 
 - Only valid mathematical equations are accepted (+-/*=1234567890)
@@ -42,10 +41,12 @@ cd nerdle-ZoltanHari
 
 ### Example Equations
 
-![Nerdle screenshot](nerdle.png)
+![](nerdle1.png)
 
-### Feedback System
+## Feedback System
 Just like Wordle, you'll know what you got right after each guess:
 - **Green**: Right number in the right position
 - **Yellow**: Right number but wrong position  
 - **White**: Number not in the equation
+
+## Decision Tree
