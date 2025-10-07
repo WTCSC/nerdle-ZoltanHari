@@ -42,7 +42,7 @@ cd nerdle-ZoltanHari
 
 ### Example Equations
 
-![Nerdle screenshot](images/nerdle.png)
+![Nerdle screenshot](nerdle.png)
 
 ### Feedback System
 Just like Wordle, you'll know what you got right after each guess:
