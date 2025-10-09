@@ -9,28 +9,35 @@ For example: 12+34=46 or 8*7=56
 import random
 
 def generate_numbers_for_addition():
-        num1 = random.randint(10, 99)
-        num2 = random.randint(10, 99)
-        result = num1 + num2
-        return (num1, num2, result)
+    answer = random.randint(20, 99) #Ensures answer can't be over 99
+    num1 = random.randint(10, answer-10)
+    num2 = answer - num1
+    return (num1, num2, answer)
 
 def generate_numbers_for_subtraction():
-        num1 = random.randint(10, 99)
-        num2 = random.randint(10, num1)
-        result = num1 - num2
-        return (num1, num2, result)
+    answer = random.randint(-89, 99) 
+    if answer >= 0:
+        num1 = random.randint(answer+10, 99)
+        num2 = answer - num1
+        return (num1, num2, answer)
+    else:
+        num1 = random.randint(0, 99-answer)
+        num2 = answer + num1
+        return (num1, num2, answer)
 
 def generate_numbers_for_multiplication():
-        num1 = random.randint(2, 9)
-        num2 = random.randint(10, 99)
-        result = num1 * num2
-        return (num1, num2, result)
+    answer = random.randint(10, 99)
+    num1 = random.randint(0, answer-9, answer)
+    if num1 == 0:
+        num1 = 1
+    num2 = answer/num1
+    return (num1, num2, answer)
 
 def generate_numbers_for_division():
-        result = random.randint(2, 9)
-        num2 = random.randint(10, 99)
-        num1 = result * num2
-        return (num1, num2, result)
+    answer = random.randint(1, 9)
+    num1 = random.randint(int(99/answer) + 1, 99)
+    num2 = num1*answer
+    return (num1, num2, answer)
     
 ################################################################################
 #  DO NOT EDIT BELOW THIS LINE, THESE FUNCTIONS ARE ALREADY COMPLETED FOR YOU  #
