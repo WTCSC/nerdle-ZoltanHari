@@ -28,7 +28,7 @@ cd nerdle-ZoltanHari
 
 ## How to Play
 
-1. Run the Game with the command ``*python3 nerdle.py*`` in the terminal
+1. Run the Game with the command **`python3 nerdle.py`** in the terminal
  
 2. Guess the hidden 8-character mathematical equation
 
